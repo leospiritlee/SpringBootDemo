@@ -1,5 +1,7 @@
 package com.leospiritlee.springBootDemo.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -10,10 +12,14 @@ import lombok.Data;
  * @create: 2020-05-14 21:21
  **/
 @Data
+@ApiModel(value = "用户实体类")
 public class User {
 
+    @ApiModelProperty(value = "用户唯一ID")
     private Long id;
+    @ApiModelProperty(value = "用户名")
     private String userName;
+    @ApiModelProperty(value = "用户密码")
     private String password;
 
     public User() {
