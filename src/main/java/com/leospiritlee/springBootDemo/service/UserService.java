@@ -20,4 +20,7 @@ public interface UserService {
     User getUserByName(String username);
 
     User getUser(Long id, String username);
+
+    Integer insertUser(User user);
+
 }

@@ -4,6 +4,7 @@ import com.leospiritlee.springBootDemo.dao.UserMapper;
 import com.leospiritlee.springBootDemo.entity.User;
 import com.leospiritlee.springBootDemo.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,5 +40,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(Long id, String username) {
         return userMapper.getUserByIdAndName(id, username);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer insertUser(User user) {
+        userMapper.insertUser(user);
+        //        throw new RuntimeException();
+        return 1;
     }
 }
