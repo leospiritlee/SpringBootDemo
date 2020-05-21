@@ -1,7 +1,7 @@
 package com.leospiritlee.springBootDemo.controller;
 
 import com.leospiritlee.springBootDemo.dto.base.JsonResult;
-import com.leospiritlee.springBootDemo.entity.User;
+import com.leospiritlee.springBootDemo.entity.UserDto;
 import com.leospiritlee.springBootDemo.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,36 +28,36 @@ public class MyBatisController {
     private UserService userService;
 
     @GetMapping("/getUserByName/{username}")
-    public JsonResult<User> getUserByName(@PathVariable String username){
+    public JsonResult<UserDto> getUserByName(@PathVariable String username){
         return new JsonResult<>(
                 userService.getUserByName(username)
         );
     }
 
     @GetMapping("/getAll")
-    public JsonResult<List<User>> getAll(){
+    public JsonResult<List<UserDto>> getAll(){
         return new JsonResult<>(
                 userService.getAll()
         );
     }
 
     @GetMapping("/getUserById/{id}")
-    public JsonResult<User> getUserById(@PathVariable Long id){
+    public JsonResult<UserDto> getUserById(@PathVariable Long id){
         return new JsonResult<>(
                 userService.getUser(id)
         );
     }
 
     @GetMapping("getUser/{id}/{username}")
-    public JsonResult<User> getUserByNameAndId(@PathVariable Long id, @PathVariable String username){
+    public JsonResult<UserDto> getUserByNameAndId(@PathVariable Long id, @PathVariable String username){
         return new JsonResult<>(
                 userService.getUser(id, username)
         );
     }
 
     @PostMapping("/insert")
-    public JsonResult<Void> insertUser(@RequestBody User user){
-        userService.insertUser(user);
+    public JsonResult<Void> insertUser(@RequestBody UserDto userDto){
+        userService.insertUser(userDto);
         return new JsonResult<>();
     }
 

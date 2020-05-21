@@ -10,7 +10,7 @@ import lombok.Data;
  * @create: 2020-05-19 21:45
  **/
 @Data
-public class User {
+public class UserDto {
     private String username;
     private String password;
 }

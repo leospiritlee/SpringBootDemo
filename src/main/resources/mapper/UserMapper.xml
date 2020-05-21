@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.leospiritlee.springBootDemo.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="com.leospiritlee.springBootDemo.entity.User">
+    <resultMap id="BaseResultMap" type="com.leospiritlee.springBootDemo.entity.UserDto">
         <id column="id" jdbcType="BIGINT" property="id" />
         <result column="user_name" jdbcType="VARCHAR" property="username" />
         <result column="password" jdbcType="VARCHAR" property="password" />
     </resultMap>
 
-    <select id="getUserByName" resultType="User" parameterType="String">
+    <select id="getUserByName" resultType="UserDto" parameterType="String">
             select * from user where user_name = #{username}
     </select>
 </mapper>

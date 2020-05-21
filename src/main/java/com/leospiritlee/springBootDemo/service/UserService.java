@@ -1,6 +1,6 @@
 package com.leospiritlee.springBootDemo.service;
 
-import com.leospiritlee.springBootDemo.entity.User;
+import com.leospiritlee.springBootDemo.entity.UserDto;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ import java.util.List;
  **/
 public interface UserService {
 
-    User getUser(Long id);
+    UserDto getUser(Long id);
 
-    List<User> getAll();
+    List<UserDto> getAll();
 
-    User getUserByName(String username);
+    UserDto getUserByName(String username);
 
-    User getUser(Long id, String username);
+    UserDto getUser(Long id, String username);
 
-    Integer insertUser(User user);
+    Integer insertUser(UserDto userDto);
 
 }

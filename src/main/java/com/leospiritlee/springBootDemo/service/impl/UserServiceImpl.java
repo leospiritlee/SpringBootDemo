@@ -1,7 +1,7 @@
 package com.leospiritlee.springBootDemo.service.impl;
 
 import com.leospiritlee.springBootDemo.dao.UserMapper;
-import com.leospiritlee.springBootDemo.entity.User;
+import com.leospiritlee.springBootDemo.entity.UserDto;
 import com.leospiritlee.springBootDemo.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,29 +23,29 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User getUser(Long id) {
+    public UserDto getUser(Long id) {
         return userMapper.getUser(id);
     }
 
     @Override
-    public List<User> getAll() {
+    public List<UserDto> getAll() {
         return userMapper.getAll();
     }
 
     @Override
-    public User getUserByName(String username) {
+    public UserDto getUserByName(String username) {
         return userMapper.getUserByName(username);
     }
 
     @Override
-    public User getUser(Long id, String username) {
+    public UserDto getUser(Long id, String username) {
         return userMapper.getUserByIdAndName(id, username);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Integer insertUser(User user) {
-        userMapper.insertUser(user);
+    public Integer insertUser(UserDto userDto) {
+        userMapper.insertUser(userDto);
         //        throw new RuntimeException();
         return 1;
     }
